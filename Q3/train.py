@@ -53,10 +53,19 @@ class Actor(nn.Module):
         log_prob = log_prob.sum(dim=-1, keepdim=True)
         return action, log_prob
     
-    def select_action(self, obs):
-        mu, _ = self.forward(obs)
-        action = torch.tanh(mu) * act_limit
-        return action
+    # def select_action(self, obs):
+    #     mu, _ = self.forward(obs)
+    #     action = torch.tanh(mu) * act_limit
+    #     return action
+    def select_action(self, obs, deterministic=True):
+        mu, std = self.forward(obs)
+        if deterministic:
+            x = mu
+        else:
+            normal = torch.distributions.Normal(mu, std)
+            x = normal.sample()
+        y = torch.tanh(x)
+        return y * act_limit
     
 class Critic(nn.Module):
     def __init__(self, obs_dim, act_dim):
