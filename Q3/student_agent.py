@@ -23,5 +23,5 @@ class Agent(object):
     def act(self, observation):
         obs = torch.tensor(observation, dtype=torch.float32, device=device).unsqueeze(0)
         with torch.no_grad():
-            action = self.actor.select_action(obs, deterministic=True)
+            action = self.actor.select_action(obs)
         return action.cpu().numpy().flatten()
