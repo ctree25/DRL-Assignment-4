@@ -53,7 +53,7 @@ class Actor(nn.Module):
         log_prob = log_prob.sum(dim=-1, keepdim=True)
         return action, log_prob
     
-    def select_action(self, obs, deterministic=True):
+    def select_action(self, obs):
         mu, _ = self.forward(obs)
         action = torch.tanh(mu) * act_limit
         return action

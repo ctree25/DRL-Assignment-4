@@ -10,7 +10,7 @@ obs_dim = 67
 act_dim = 21
 act_limit = 1.0
 device = "cpu"
-actor_path = "./sac_actor_humanoid_30200.pth"
+actor_path = "./sac_actor_humanoid_32600.pth"
 
 
 class Agent(object):
