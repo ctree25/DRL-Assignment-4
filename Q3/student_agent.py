@@ -3,11 +3,11 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from train_f import Actor, make_env
+from train_f_2 import Actor, make_env
 
 
 device = "cpu"
-actor_path = "./sac_actor_humanoid_7.pth"
+actor_path = "./sac_actor_humanoid_8.pth"
 
 
 
