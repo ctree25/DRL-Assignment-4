@@ -7,7 +7,7 @@ from train_f_2 import Actor, make_env
 
 
 device = "cpu"
-actor_path = "./sac_actor_humanoid_8.pth"
+actor_path = "./sac_actor_humanoid_900.pth"
 
 
 
